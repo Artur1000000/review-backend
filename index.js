@@ -4,6 +4,12 @@ import mongoose from "mongoose";
 import cors from "cors";
 import AuthRouter from "./src/routes/AuthRouter.js";
 import RegRouter from "./src/routes/RegRouter.js";
+import ForgotPassRouter from "./src/routes/ForgotPassRouter.js";
+import VerificationRouter from "./src/routes/VerificationRouter.js";
+import {
+  ChangeForgotPassRouter,
+  VerificationChangeForgotPassRouter,
+} from "./src/routes/ChangeForgotPassRouter.js";
 
 const app = express();
 
@@ -30,6 +36,10 @@ app.get("/", (req, res) => {
 
 app.use("/api", AuthRouter);
 app.use("/api", RegRouter);
+app.use("/api", ForgotPassRouter);
+app.use("/api", VerificationRouter);
+app.use("/api", ChangeForgotPassRouter);
+app.use("/api", VerificationChangeForgotPassRouter);
 
 app.listen(PORT, (error) => {
   if (error) {

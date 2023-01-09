@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ReviewTopicSchema = new mongoose.Schema(
+const TopicSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -20,9 +20,13 @@ const ReviewTopicSchema = new mongoose.Schema(
         author: String,
       },
     ],
+    category: {
+      type: String,
+      require: true,
+    },
     tags: [String],
   },
   { timestamps: true }
 );
 
-export default mongoose.model("ReviewTopic", ReviewTopicSchema);
+export default mongoose.model("Topics", TopicSchema);
